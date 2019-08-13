@@ -1,87 +1,129 @@
 <?php 
 include 'header.php';
  ?>
-<div class="">
-	<form method="POST" action=""/>
-		<label for="basic-url">Digite o título do livro</label>
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-		    <span class="input-group-text" id="basic-addon3">O nome do livro é: </span>
-		  	</div>
-		  	<input type="text" name="livro" class="form-control" id="basic-url" aria-describedby="basic-addon3"/>
-		  	<div class="input-group-prepend">
-				<select name="perfil" class="custom-select">
-					<option value="0">Seu perfil</option>
-					<option value="1">Professor</option>
-					<option value="2">Aluno</option>
-				</select>
-			</div>
-			<input type="submit" name="botao" value="Verificar" class="btn btn-outline-secondary"/>
-		</div>
 
-	</form>
-<!-- Caixa de avisos-->
+<!-- Começo do conteúdo da página -->
+        <div class="container-fluid">
 
- <?php  
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Página Inicial</h1>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Baixar relatórios</a>
+          </div>
 
-#lista dos dados armazenados no banco de dados
-	#livros
-	$livrosbd = array(
-				array('Titulo' => 'A morte dos que não foram' , 'Tipo' => 'Drama', 'status' => 'Indisponíve' ),
-				array('Titulo' => 'Joãozinho sem pé' , 'Tipo' => 'Mistério', 'status' => 'Disponíve' ),
-				);
-	#usuários
-	$usuarios = array(
-				array('Nome' => 'Alfredo' , 'Tipo' => 'Professor' ),
-				array('Nome' => 'Ricardo' , 'Tipo' => 'Aluno'),
-				);
-if (isset($_POST['botao'])) {
-	$livro = $_POST['livro'];
-	
-	if(is_string($livro)){
-		buscar1($livro, $livrosbd);
-	}
+          <!-- Content Row -->
+          <div class="row">
 
-	
-}
-?>
-<?php 
+            <!-- Quantidade de alunos -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Quantidade de Alunos</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">120 alunos</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
- 
-#funções
-function buscar1($livro, $livrosbd){
-	$busca = array_search($livro, array_column($livrosbd,'Titulo'));
-	$situacao = $livrosbd[$busca]['status'];
-	
+<!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Professores</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">12 professores</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                        </div>
+                        <div class="col">
+                          <div class="progress progress-sm mr-2">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-	?>
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Dependências</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-comments fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-	<div class="alert alert-success" role="alert">
-		  <h4 class="alert-heading">Disponível para empréstimo</h4>
-		  <p>O Livro <?php echo $livro?> está disponível para empréstimo.</p>
-		  <hr>
-		  <p class="mb-0">Você está fazendo o empréstimo no dia <b><?php echo date('d/m/y') ;?></b>. Você tem a té a data para entregar o livro<?php 
-		  		$data = date('d/m/y');
-			    $data = DateTime::createFromFormat('d/m/Y', $data);
-			    $data->add(new DateInterval('P3D')); // 2 dias
-			    echo $data->format('d/m/Y');
+          <!-- Content Row -->
 
+<div class="row">
 
-		   ?></p>
-	</div>
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Dropdown Header:</div>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-area">
+                    <canvas id="myAreaChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-
-	<?php echo $situacao;
-
-};
-
-
-
-
-?>
-
-</div>
 
 <?php 
 include 'footer.php';
